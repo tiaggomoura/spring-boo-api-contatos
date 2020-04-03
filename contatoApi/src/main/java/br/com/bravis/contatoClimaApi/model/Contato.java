@@ -36,7 +36,7 @@ public class Contato implements Serializable {
 	private String numeroFone;
 
 	@Column(name = "numero_celuar")
-	private String numeroCeluar;
+	private String numeroCelular;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "numero_zap")
@@ -48,9 +48,16 @@ public class Contato implements Serializable {
 	private Pessoa pessoa;
 
 	public Contato(ContatoDTO obj) {
+
 		this.numeroFone = obj.getNumeroFone();
-		this.numeroCeluar = obj.getNumeroCeluar();
+		this.numeroCelular = obj.getNumeroCeluar();
 		this.numeroZap = obj.getNumeroZap();
+	}
+
+	public Contato comID(Long id) {
+
+		this.setId(id);
+		return this;
 	}
 
 	public Contato registrarPara(Pessoa pessoa) {

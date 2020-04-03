@@ -35,4 +35,23 @@ public class ContatoService {
 
 		return this.repository.save(novoContato);
 	}
+
+	public Contato update(Contato obj) {
+
+		Contato newObj = this.findById(obj.getId());
+		updateData(newObj, obj);
+		return repository.save(newObj);
+	}
+
+	private void updateData(Contato newObj, Contato obj) {
+
+		newObj.setNumeroFone(obj.getNumeroFone());
+		newObj.setNumeroCelular(obj.getNumeroCelular());
+		newObj.setNumeroZap(obj.getNumeroZap());
+	}
+
+	public Contato fromDTO(ContatoDTO objDto) {
+
+		return new Contato(objDto).comID(objDto.getId());
+	}
 }

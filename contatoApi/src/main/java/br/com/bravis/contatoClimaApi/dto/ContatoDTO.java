@@ -1,8 +1,12 @@
 package br.com.bravis.contatoClimaApi.dto;
 
+import javax.validation.constraints.NotNull;
+
 import br.com.bravis.contatoClimaApi.enums.EnumSimNao;
 
 public class ContatoDTO {
+
+	private Long id;
 
 	private String numeroFone;
 
@@ -10,6 +14,7 @@ public class ContatoDTO {
 
 	private EnumSimNao numeroZap;
 
+	@NotNull
 	private Long idPessoa;
 
 	public String getNumeroFone() {
@@ -50,6 +55,16 @@ public class ContatoDTO {
 	public void setIdPessoa(Long idPessoa) {
 
 		this.idPessoa = idPessoa;
+	}
+
+	public Long getId() {
+
+		return id;
+	}
+
+	public void setId(Long id) {
+
+		this.id = id;
 	}
 
 }
