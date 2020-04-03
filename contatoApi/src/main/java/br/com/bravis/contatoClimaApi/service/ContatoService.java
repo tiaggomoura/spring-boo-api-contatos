@@ -2,8 +2,15 @@ package br.com.bravis.contatoClimaApi.service;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.bravis.contatoClimaApi.dto.ContatoDTO;
 import br.com.bravis.contatoClimaApi.exceptions.ObjectNotFoundException;
@@ -54,5 +61,14 @@ public class ContatoService {
 
 		return new Contato(objDto).comID(objDto.getId());
 	}
+
+	public void delete(Long id) {
+
+		this.findById(id);
+		this.repository.deleteById(id);
+
+	}
 	
+	
+
 }

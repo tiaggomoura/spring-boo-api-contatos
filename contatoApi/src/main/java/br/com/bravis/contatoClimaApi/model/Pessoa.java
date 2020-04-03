@@ -51,4 +51,10 @@ public class Pessoa implements Serializable {
 		return this;
 	}
 
+	public Pessoa comID(Long id) {
+
+		this.setId(id);
+		return this;
+	}
+
 }

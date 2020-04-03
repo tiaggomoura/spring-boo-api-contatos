@@ -40,5 +40,21 @@ public class PessoaController {
 		return ResponseEntity.created(uri).build();
 
 	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Void> atualizar(@Valid @RequestBody PessoaDTO objDto, @PathVariable Long id) {
+
+		Pessoa obj = this.service.fromDTO(objDto);
+		obj.setId(id);
+		obj = service.update(obj);
+		return ResponseEntity.noContent().build();
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable Long id) {
+
+		this.service.delete(id);
+		return ResponseEntity.noContent().build();
+	}
 
 }

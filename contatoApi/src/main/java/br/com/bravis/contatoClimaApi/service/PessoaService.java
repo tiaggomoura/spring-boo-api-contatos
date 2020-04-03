@@ -5,8 +5,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.bravis.contatoClimaApi.dto.ContatoDTO;
 import br.com.bravis.contatoClimaApi.dto.PessoaDTO;
 import br.com.bravis.contatoClimaApi.exceptions.ObjectNotFoundException;
+import br.com.bravis.contatoClimaApi.model.Contato;
 import br.com.bravis.contatoClimaApi.model.Pessoa;
 import br.com.bravis.contatoClimaApi.repository.PessoaRepository;
 
@@ -27,6 +29,32 @@ public class PessoaService {
 
 		Pessoa novaPessoa = new Pessoa(obj);
 		return this.repository.save(novaPessoa);
+	}
+
+	public Pessoa update(Pessoa obj) {
+
+		Pessoa newObj = this.findById(obj.getId());
+		this.updateData(newObj, obj);
+		return repository.save(newObj);
+	}
+
+	private void updateData(Pessoa newObj, Pessoa obj) {
+
+		newObj.setNome(obj.getNome());
+		newObj.setIdade(obj.getIdade());
+
+	}
+
+	public Pessoa fromDTO(PessoaDTO objDto) {
+
+		return new Pessoa(objDto).comID(objDto.getId());
+	}
+
+	public void delete(Long id) {
+
+		this.findById(id);
+		this.repository.deleteById(id);
+
 	}
 
 }

@@ -7,6 +7,8 @@ import br.com.bravis.contatoClimaApi.model.Pessoa;
 
 public class PessoaDTO {
 
+	private Long id;
+
 	@NotEmpty(message = "Campo Nome é obrigatório.")
 	private String nome;
 
@@ -42,6 +44,16 @@ public class PessoaDTO {
 	public void setIdade(Integer idade) {
 
 		this.idade = idade;
+	}
+
+	public Long getId() {
+
+		return id;
+	}
+
+	public void setId(Long id) {
+
+		this.id = id;
 	}
 
 }
