@@ -1,0 +1,55 @@
+package br.com.bravis.contatoClimaApi.dto;
+
+import br.com.bravis.contatoClimaApi.enums.EnumSimNao;
+
+public class ContatoDTO {
+
+	private String numeroFone;
+
+	private String numeroCeluar;
+
+	private EnumSimNao numeroZap;
+
+	private Long idPessoa;
+
+	public String getNumeroFone() {
+
+		return numeroFone;
+	}
+
+	public void setNumeroFone(String numeroFone) {
+
+		this.numeroFone = numeroFone;
+	}
+
+	public String getNumeroCeluar() {
+
+		return numeroCeluar;
+	}
+
+	public void setNumeroCeluar(String numeroCeluar) {
+
+		this.numeroCeluar = numeroCeluar;
+	}
+
+	public EnumSimNao getNumeroZap() {
+
+		return numeroZap;
+	}
+
+	public void setNumeroZap(String numeroZap) {
+
+		this.numeroZap = EnumSimNao.valueOf(numeroZap);
+	}
+
+	public Long getIdPessoa() {
+
+		return idPessoa;
+	}
+
+	public void setIdPessoa(Long idPessoa) {
+
+		this.idPessoa = idPessoa;
+	}
+
+}
