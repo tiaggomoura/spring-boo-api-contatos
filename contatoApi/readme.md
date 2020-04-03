@@ -1,5 +1,5 @@
 ## Resume
-* API CRUD de List of Contats
+* API CRUD List of Contats
 
 ## Installation
 * Download Spring Tool Suite 4 (STS) or Current Eclipse.
