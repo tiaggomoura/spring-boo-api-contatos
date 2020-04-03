@@ -54,4 +54,5 @@ public class ContatoService {
 
 		return new Contato(objDto).comID(objDto.getId());
 	}
+	
 }

@@ -66,5 +66,6 @@ public class ContatoDTO {
 
 		this.id = id;
 	}
+	
 
 }

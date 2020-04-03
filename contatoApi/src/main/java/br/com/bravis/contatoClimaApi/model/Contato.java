@@ -70,5 +70,6 @@ public class Contato implements Serializable {
 
 		return this.getNumeroZap().isSim();
 	}
+	
 
 }
