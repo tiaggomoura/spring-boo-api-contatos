@@ -1,5 +1,5 @@
 ## Foobar
-* Projeto para caso de estudo, API CRUD de Contatos
+* API CRUD de List of Contats
 
 ## Installation
 * Download Spring Tool Suite 4 (STS) or Current Eclipse.
