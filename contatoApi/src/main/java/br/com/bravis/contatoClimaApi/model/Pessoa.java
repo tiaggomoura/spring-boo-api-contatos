@@ -14,11 +14,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.bravis.contatoClimaApi.dto.PessoaDTO;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 @Entity
 @Table(name = "pessoa")
 public class Pessoa implements Serializable {

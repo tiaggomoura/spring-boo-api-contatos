@@ -12,5 +12,5 @@ import br.com.bravis.contatoClimaApi.model.Pessoa;
 public interface ContatoRepository extends CrudRepository<Contato, Long> {
 
 	Set<Contato> findByPessoa(Pessoa pessoa);
-
+	
 }

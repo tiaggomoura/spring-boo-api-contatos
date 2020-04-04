@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.bravis.contatoClimaApi.dto.ContatoDTO;
 import br.com.bravis.contatoClimaApi.dto.PessoaDTO;
 import br.com.bravis.contatoClimaApi.exceptions.ObjectNotFoundException;
+import br.com.bravis.contatoClimaApi.exceptions.RegraNegocioException;
 import br.com.bravis.contatoClimaApi.model.Contato;
 import br.com.bravis.contatoClimaApi.model.Pessoa;
 import br.com.bravis.contatoClimaApi.repository.PessoaRepository;
@@ -22,11 +23,14 @@ public class PessoaService {
 
 		Optional<Pessoa> obj = this.repository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Registro não encontrado para o ID: " + id + ", Tipo: " + Pessoa.class.getName()));
-
 	}
 
 	public Pessoa insert(PessoaDTO obj) {
 
+		if (this.repository.existsByNome(obj.getNome())) {
+			throw new RegraNegocioException("Já existe uma Pessoa cadastrada com o nome: " + obj.getNome() + ", Tipo: " + Pessoa.class.getName());
+		}
+		
 		Pessoa novaPessoa = new Pessoa(obj);
 		return this.repository.save(novaPessoa);
 	}

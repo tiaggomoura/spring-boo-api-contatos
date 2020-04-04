@@ -8,4 +8,5 @@ import br.com.bravis.contatoClimaApi.model.Pessoa;
 @Repository
 public interface PessoaRepository extends CrudRepository<Pessoa, Long> {
 
+	boolean existsByNome(String nome);
 }
